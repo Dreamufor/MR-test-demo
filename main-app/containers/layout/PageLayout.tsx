@@ -1,7 +1,7 @@
 import React from 'react';
 
 function PageLayout(props) {
-  return <>{props.children}</>;
+  return <div className="py-4">{props.children}</div>;
 }
 
 export default PageLayout;

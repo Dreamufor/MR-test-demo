@@ -1,9 +1,15 @@
-import React, { FC } from 'react';
+import React, { FC, useContext } from 'react';
+import { ProductContext } from '../../pages';
 
 type ProductDetailProps = {};
 
 const ProductDetail: FC<ProductDetailProps> = (props) => {
-  return <div className="text-red-700"></div>;
+  const { addToCart } = useContext(ProductContext);
+  return (
+    <div className="text-red-700">
+      <button onClick={() => addToCart('test item')}>Add To Cart</button>
+    </div>
+  );
 };
 
 export default ProductDetail;

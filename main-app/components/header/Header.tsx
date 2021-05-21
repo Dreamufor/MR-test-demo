@@ -1,7 +1,27 @@
-import React from 'react';
+import React, { FC, useState } from 'react';
+import ShoppingCart from '../shoppingcart/ShoppingCart';
 
-function Header() {
-  return <div></div>;
-}
+type HeaderProps = {};
+const Header: FC<HeaderProps> = (props) => {
+  const [isCartOpen, setIsCartOpen] = useState(false);
+
+  const handleCartToggle = () => {
+    setIsCartOpen((prev) => !prev);
+  };
+  return (
+    <div className="bg-gray-100 h-8 px-8 flex items-center text-right">
+      <div className="w-full text-gray-500 text-sm font-light cursor-pointer">
+        <button className="" onClick={handleCartToggle}>
+          My Cart
+        </button>
+      </div>
+      {isCartOpen && (
+        <div className="py-8">
+          <ShoppingCart />
+        </div>
+      )}
+    </div>
+  );
+};
 
 export default Header;
