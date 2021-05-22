@@ -37,22 +37,22 @@ const ProductDetail: FC<ProductDetailProps> = (props) => {
   return (
     <>
       {product && (
-        <div className="flex gap-x-4 py-8 -mx-4">
-          <div className="w-1/2 flex justify-center">
-            <div className="w-96">
+        <div className="xl:flex gap-x-4 py-8 xl:-mx-4">
+          <div className="w-full xl:w-1/2 flex justify-center">
+            <div className="w-4/5 xl:w-96">
               <img src={product.imgSrc} alt="" className="w-full h-full" />
             </div>
           </div>
 
-          <div className="w-1/2  text-fontColor-light">
+          <div className="w-full xl:w-1/2 sm:w-full text-fontColor-light p-8">
             <div className="text-fontColor-dark text-2xl font-light">{product.product_name}</div>
             <div className="py-4">
-              <div className="z-0 border-t border-border-lightGray opacity-20" />
+              <div className="hidden sm:block z-0 border-t border-border-lightGray opacity-20" />
               <div className="text-fontColor-dark text-sm font-medium py-2">${product.price.toFixed(2)}</div>
-              <div className="z-0 border-t border-border-lightGray opacity-20" />
+              <div className="hidden sm:block z-0 border-t border-border-lightGray opacity-20" />
             </div>
 
-            <div className="text-xs font-light">{product.product_description}</div>
+            <div className="text-xs font-light whitespace-normal">{product.product_description}</div>
             <div className="pt-6">
               <div className="text-xs pt-2">
                 SIZE <span className="text-required-star pr-2">*</span>
