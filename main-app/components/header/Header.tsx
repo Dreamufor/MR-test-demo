@@ -9,8 +9,8 @@ const Header: FC<HeaderProps> = (props) => {
     setIsCartOpen((prev) => !prev);
   };
   return (
-    <div className="bg-gray-100 h-8 px-8 flex items-center text-right">
-      <div className="w-full text-gray-500 text-sm font-light cursor-pointer">
+    <div className="bg-background-header h-8 px-8 flex items-center text-right">
+      <div className="w-full text-fontColor-light text-sm font-light cursor-pointer">
         <button className="" onClick={handleCartToggle}>
           My Cart
         </button>

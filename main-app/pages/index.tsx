@@ -19,7 +19,9 @@ const App: FC = (props) => {
     >
       <PageLayout>
         <Header />
-        <ProductDetail />
+        <div className="px-16">
+          <ProductDetail />
+        </div>
       </PageLayout>
     </ProductContext.Provider>
   );
