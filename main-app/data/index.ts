@@ -5,6 +5,15 @@ export enum Size {
   M = 'M',
   L = 'L',
 }
+export type CartItem = {
+  key: string;
+  id: string;
+  price: number;
+  name: string;
+  size: Size;
+  image: string;
+  amount: number;
+};
 
 export type Product = {
   id: string;

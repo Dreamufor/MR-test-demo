@@ -2,28 +2,19 @@ import React, { createContext, FC } from 'react';
 import Header from '../components/header/Header';
 import ProductDetail from '../components/product/ProductDetail';
 import PageLayout from '../containers/layout/PageLayout';
+import { CartProvider } from '../context/CartContext';
+import { CartItem } from '../data';
 
-export const ProductContext = createContext(null);
 const App: FC = (props) => {
-  const cartDetails = [];
-
-  const handleAddToCartClick = (item) => {
-    console.log(item, 'item');
-  };
   return (
-    <ProductContext.Provider
-      value={{
-        cartDetails,
-        addToCart: handleAddToCartClick,
-      }}
-    >
+    <CartProvider>
       <PageLayout>
         <Header />
         <div className="px-16">
           <ProductDetail />
         </div>
       </PageLayout>
-    </ProductContext.Provider>
+    </CartProvider>
   );
 };
 

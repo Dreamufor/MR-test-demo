@@ -1,14 +1,28 @@
 import React, { FC, useContext, useEffect, useState } from 'react';
-import { ProductContext } from '../../pages';
 
 import { getProductQuery, Product, Size } from '../../data/index';
+import { CartContext } from '../../context/CartContext';
 
 type ProductDetailProps = {};
 
-const ProductDetail: FC<ProductDetailProps> = (props) => {
-  const { addToCart } = useContext(ProductContext);
-  const [product, setProduct] = useState<Product>(null);
+const convertProductToCartItem = (product: Product, selectedSize: Size) => {
+  return {
+    key: product.id + selectedSize,
+    id: product.id,
+    price: product.price,
+    name: product.product_name,
+    size: selectedSize,
+    image: product.imgSrc,
+    amount: 1,
+  };
+};
 
+const ProductDetail: FC<ProductDetailProps> = (props) => {
+  const { addToCart } = useContext(CartContext);
+  const [product, setProduct] = useState<Product>(null);
+  const handleAddToCart = () => {
+    addToCart(convertProductToCartItem(product, selectedSize));
+  };
   const [selectedSize, setSelectedSize] = useState<Size>(null);
 
   const handleSelectSize = (size: Size) => {
@@ -63,8 +77,9 @@ const ProductDetail: FC<ProductDetailProps> = (props) => {
               </div>
             </div>
             <button
+              disabled={!selectedSize}
               className="border-2 border-border-darkGray px-4 py-2 text-fontColor-dark text-sm font-medium"
-              onClick={() => addToCart('test item')}
+              onClick={handleAddToCart}
             >
               ADD TO CART
             </button>
