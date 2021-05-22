@@ -11,17 +11,17 @@ const Header: FC<HeaderProps> = (props) => {
     setIsCartOpen((prev) => !prev);
   };
   return (
-    <div className="bg-background-header h-8 px-8 flex items-center text-right">
-      <div className="w-full text-fontColor-light text-sm font-light cursor-pointer">
-        <button className="" onClick={handleCartToggle}>
-          My Cart {!!totalAmount && totalAmount}
-        </button>
-      </div>
+    <div className="w-full bg-background-header h-8 px-16 flex items-center text-right relative z-30">
       {isCartOpen && (
-        <div className="py-8">
+        <div className="absolute top-8 right-16">
           <ShoppingCart />
         </div>
       )}
+      <div className="w-full text-fontColor-light cursor-pointer">
+        <div className="border-0 font-light text-xs" onClick={handleCartToggle}>
+          My Cart {!!totalAmount && <span>{'( ' + totalAmount + ' )'}</span>}
+        </div>
+      </div>
     </div>
   );
 };

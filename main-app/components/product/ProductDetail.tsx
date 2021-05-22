@@ -47,9 +47,9 @@ const ProductDetail: FC<ProductDetailProps> = (props) => {
           <div className="w-1/2  text-fontColor-light">
             <div className="text-fontColor-dark text-2xl font-light">{product.product_name}</div>
             <div className="py-4">
-              <hr className="border-border-lightGray opacity-20" />
+              <div className="z-0 border-t border-border-lightGray opacity-20" />
               <div className="text-fontColor-dark text-sm font-medium py-2">${product.price.toFixed(2)}</div>
-              <hr className="border-border-lightGray opacity-20" />
+              <div className="z-0 border-t border-border-lightGray opacity-20" />
             </div>
 
             <div className="text-xs font-light">{product.product_description}</div>
