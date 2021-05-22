@@ -17,7 +17,7 @@ const convertProductToCartItem = (product: Product, selectedSize: Size) => {
   };
 };
 
-const ProductDetail: FC<ProductDetailProps> = (props) => {
+const ProductDetail: FC<ProductDetailProps> = () => {
   const { addToCart } = useContext(CartContext);
   const [product, setProduct] = useState<Product>(null);
   const handleAddToCart = () => {
@@ -33,7 +33,7 @@ const ProductDetail: FC<ProductDetailProps> = (props) => {
       setProduct(item);
     });
   }, []);
-  console.log(product);
+
   return (
     <>
       {product && (

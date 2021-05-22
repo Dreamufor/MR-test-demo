@@ -1,11 +1,10 @@
-import React, { createContext, FC } from 'react';
+import React, { FC } from 'react';
 import Header from '../components/header/Header';
 import ProductDetail from '../components/product/ProductDetail';
 import PageLayout from '../containers/layout/PageLayout';
 import { CartProvider } from '../context/CartContext';
-import { CartItem } from '../data';
 
-const App: FC = (props) => {
+const App: FC = () => {
   return (
     <CartProvider>
       <PageLayout>

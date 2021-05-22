@@ -3,7 +3,7 @@ import { CartContext } from '../../context/CartContext';
 import ShoppingCart from '../shoppingcart/ShoppingCart';
 
 type HeaderProps = {};
-const Header: FC<HeaderProps> = (props) => {
+const Header: FC<HeaderProps> = () => {
   const { totalAmount } = useContext(CartContext);
   const [isCartOpen, setIsCartOpen] = useState(false);
 

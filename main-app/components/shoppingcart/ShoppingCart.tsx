@@ -4,7 +4,6 @@ import { CartItem } from '../../data';
 
 const ShoppingCart = () => {
   const { cartDetails } = useContext(CartContext);
-  console.log('cartDetails', cartDetails);
   return (
     <div className="bg-white w-64 border border-gray-300 flex flex-col p-8 gap-y-4">
       {cartDetails?.length === 0 ? (
