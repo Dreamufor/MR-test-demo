@@ -78,7 +78,7 @@ const ProductDetail: FC<ProductDetailProps> = () => {
             </div>
             <button
               disabled={!selectedSize}
-              className="border-2 border-border-darkGray px-4 py-2 text-fontColor-dark text-sm font-medium"
+              className="border-2 border-border-darkGray px-4 py-2 text-fontColor-dark text-sm font-medium hover:bg-border-darkGray hover:text-white"
               onClick={handleAddToCart}
             >
               ADD TO CART

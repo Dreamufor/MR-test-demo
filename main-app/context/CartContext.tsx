@@ -18,15 +18,30 @@ export const CartProvider = (props) => {
       return [...preCartDetails, cartItem];
     });
   };
+
+  const handleRemoveCartItems = (cartItem: CartItem) => {
+    setCartDetails(cartDetails.filter((item) => item.key !== cartItem.key));
+  };
+
+  const handleRemoveAllItems = () => {
+    setCartDetails([]);
+  };
   const totalAmount = useMemo(() => {
     return cartDetails.reduce((result, item) => result + item.amount, 0);
+  }, [cartDetails]);
+
+  const totalPrice = useMemo(() => {
+    return cartDetails.reduce((result, item) => result + item.amount * item.price, 0);
   }, [cartDetails]);
   return (
     <CartContext.Provider
       value={{
         cartDetails,
         totalAmount,
+        totalPrice,
         addToCart: handleAddToCartClick,
+        removeCartItems: handleRemoveCartItems,
+        removeAll: handleRemoveAllItems,
       }}
     >
       {props.children}
